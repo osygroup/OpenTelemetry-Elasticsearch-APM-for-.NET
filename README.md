@@ -48,3 +48,5 @@ PUT /_template/opentel-logs-template?pretty
 }
 ```
 
+
+##### NOTE: OpenTelemetry Collector's Elasticsearch exporter has issues persisting the data it collects on disk. It currently does not work. There is an open [issue](https://github.com/open-telemetry/opentelemetry-collector-contrib/issues/45747#) on this failure.
