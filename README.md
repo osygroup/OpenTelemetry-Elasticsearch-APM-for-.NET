@@ -61,7 +61,7 @@ PUT _index_template/opentel-logs-template
 ```
 
 
-##### NOTE: OpenTelemetry Collector's Elasticsearch exporter has issues persisting the data it collects on disk. It currently does not work. There is an open [issue](https://github.com/open-telemetry/opentelemetry-collector-contrib/issues/45747#) on this failure.
+#### NOTE: OpenTelemetry Collector's Elasticsearch exporter has issues persisting the data it collects on disk. It currently does not work. There is an open [issue](https://github.com/open-telemetry/opentelemetry-collector-contrib/issues/45747#) on this failure.
 Based on this pending issue, using Serilog to directly send logs to Elasitcsearch is a better alternative (provided you don't use the OpenTelemetry Collector for collecting metrics and traces).
 [https://chatgpt.com/share/6a58e1da-4cfc-83ea-af19-00cafa903626](https://chatgpt.com/share/6a58e1da-4cfc-83ea-af19-00cafa903626)
 [https://www.elastic.co/docs/reference/ecs/logging/dotnet/serilog-data-shipper](https://www.elastic.co/docs/reference/ecs/logging/dotnet/serilog-data-shipper)
