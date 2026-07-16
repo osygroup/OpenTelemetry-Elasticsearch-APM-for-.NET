@@ -44,6 +44,13 @@ PUT opentel-logs-*/_settings
   "index.lifecycle.name": "deleteOldIndices"
 }
 ```
+OR
+```
+PUT /opentel-logs-*/_settings?pretty
+{
+  "lifecycle.name": "deleteOldIndices"
+}
+```
 
 #### Create template for opentel-logs-* indices:
 ```
