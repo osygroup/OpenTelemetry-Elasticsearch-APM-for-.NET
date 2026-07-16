@@ -19,14 +19,19 @@ Hence we used the word "opentel-logs" so that the Dat Streams and indices create
 
 #### Create a policy (where min_age is the highest age for a log/index):
 ```
-PUT _index_template/opentel-logs-template
+PUT _ilm/policy/deleteOldIndices
 {
-  "index_patterns": ["opentel-logs-*"],
-  "data_stream": {},
-  "priority": 500,
-  "template": {
-    "settings": {
-      "index.lifecycle.name": "deleteOldIndices"
+  "policy": {
+    "phases": {
+      "hot": {
+        "actions": {}
+      },
+      "delete": {
+        "min_age": "5d",
+        "actions": {
+          "delete": {}
+        }
+      }
     }
   }
 }
@@ -42,9 +47,16 @@ PUT opentel-logs-*/_settings
 
 #### Create template for opentel-logs-* indices:
 ```
-PUT /_template/opentel-logs-template?pretty
+PUT _index_template/opentel-logs-template
 {
-"index_patterns": ["opentel-logs-*"], "settings": { "index.lifecycle.name": "deleteOldIndices" }
+  "index_patterns": ["opentel-logs-*"],
+  "data_stream": {},
+  "priority": 500,
+  "template": {
+    "settings": {
+      "index.lifecycle.name": "deleteOldIndices"
+    }
+  }
 }
 ```
 
