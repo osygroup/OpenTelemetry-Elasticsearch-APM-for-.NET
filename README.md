@@ -4,6 +4,10 @@ Setup of OpenTelemetry-Elasticsearch-APM on docker for .NET8 service logging, tr
 The Elasticsearch, Kibana and APM version used in the docker-compose file is version 8.18.0
 The OpenTelemetry Collector version used in the docker-compose file is 0.140.1
 
+Make sure you create the kibana_system user account to enable Kibana access to Elasticsearch by running the script below and following the instructions:
+```
+docker exec -it elasticsearch bin/elasticsearch-reset-password -u kibana_system --interactive
+```
 
 Indices created are now created under Data Streams. The indices would be hidden because of a fullstop in front of the index.
 If the name of an index is opentel-logs-* (based on the OpenTelemetry Collector config file):
