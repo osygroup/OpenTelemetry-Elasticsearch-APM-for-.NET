@@ -19,7 +19,7 @@ Daily index created would look like this: .ds-opentel-logs-2026.07.02-2026.07.02
 Deleting an index using ILM also deletes the Data Stream that the index is created in.
 
 Newer Elasticsearch versions already have default Index Templates that automatically filters out Data Streams and Indices that start with "logs", "otel" and manages them, we won't create our indices starting with these words. Applying our own policy on the Data Streams and Indices won't work because they are managed by another policy.
-Hence we used the word "opentel-logs" so that the Dat Streams and indices created won't be automatically managed by any default Index Templates.
+Hence we used the word "opentel-logs" so that the Data Streams and indices created won't be automatically managed by any default Index Templates.
 
 #### Create a policy (where min_age is the highest age for a log/index):
 ```
